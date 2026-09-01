@@ -1,9 +1,1 @@
-```
-# Compiled Python files
-*.pyc
-__pycache__/
-
-# Logs
-*.log
-uvicorn.log
-```
+(empty)

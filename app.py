@@ -2253,6 +2253,33 @@ _CART_CHANGED_CODES = {
     "ITEM_OOS", "PRICE_CHANGED",
 }
 
+# Error messages that indicate cart was updated/changed
+_CART_ERROR_MESSAGES = {
+    "cart has been updated", "please review your cart", "cart updated",
+    "cart changed", "cart modified", "total changed", "price changed",
+}
+
+
+def _is_cart_changed_error(d: dict) -> bool:
+    """Check if response indicates cart was updated/changed."""
+    if not isinstance(d, dict):
+        return False
+    err = d.get("error") or {}
+    if isinstance(err, dict):
+        code = str(err.get("code") or err.get("error_code") or "").upper()
+        if code in _CART_CHANGED_CODES:
+            return True
+        msg = str(err.get("message") or err.get("title") or "").lower()
+        for m in _CART_ERROR_MESSAGES:
+            if m in msg:
+                return True
+    # Also check top-level message
+    msg = str(d.get("message") or "").lower()
+    for m in _CART_ERROR_MESSAGES:
+        if m in msg:
+            return True
+    return False
+
 
 async def _fresh_checkout_state(need_paymentinfo=True):
     """Run review -> bind address -> (paymentinfo) with FULLY fresh sessions and
