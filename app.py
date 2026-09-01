@@ -3241,19 +3241,22 @@ async def api_order_prices(data: dict = None):
             upi_from_pi = res_pi.get("effective_total_for_upi_plugin")
             if upi_from_pi is not None:
                 v = float(upi_from_pi) if upi_from_pi not in (None, "") else None
-                if v is not None and v >= 0 and v < cod:
+                if v is not None and v >= 0:
                     online = v
         # Fallback to upi_amount or cart review's effective_total_for_upi_plugin
         if online is None:
             for src in (upi_amount, review.get("effective_total_for_upi_plugin")):
                 v = float(src) if src is not None else None
-                if v is not None and v >= 0 and v < cod:
+                if v is not None and v >= 0:
                     online = v
                     break
-        if online is None or online >= cod:
+        if online is None:
             # Fallback: apply a standard prepaid discount if we can't get the
             # real UPI price, so COD stays strictly higher than UPI.
             online = cod if cod <= 0 else max(0.0, cod - 1)
+        # Final safety: ensure online <= cod (UPI should never be more expensive)
+        if online is not None and cod is not None and online > cod:
+            online = cod
         fod = review.get("fod")
         return {"cod": cod, "online": online, "address": review.get("address") or addr,
                 "fod": fod, "total": cod, "total_mrp": float(review.get("total_mrp") or 0),
