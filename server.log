@@ -1,0 +1,49 @@
+INFO:     Started server process [23792]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48242 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET /api/bootstrap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48250 - "GET /api/accounts/order_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET /api/bootstrap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48250 - "GET /api/accounts/order_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET /api/bootstrap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48250 - "GET /api/accounts/order_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48248 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "GET /api/bootstrap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48282 - "GET /api/accounts/order_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "GET /api/bootstrap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48282 - "GET /api/accounts/order_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48280 - "POST /api/order/prices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/pay_online HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /api/order/payment_status HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23792]
