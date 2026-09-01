@@ -2854,16 +2854,40 @@ async def api_cart_update(data: dict = None):
     it = data.get("item") or {}
     pid = int(it.get("product_id") or data.get("product_id") or 0)
     qty = int(it.get("quantity", 1))
-    # Update the LOCAL cart, then push the same change to the real Meesho cart.
+    
+    # First update LOCAL cart - filter out zero-quantity items BEFORE sync
     for x in db["cart"].get("items") or []:
         if x.get("identifier") == it.get("identifier") or int(x.get("product_id") or 0) == pid:
             if it.get("quantity") is not None:
                 x["quantity"] = max(0, int(it["quantity"]))
             if it.get("variation"):
                 x["variation"] = it["variation"]
-    db["cart"]["items"] = [x for x in db["cart"].get("items") or [] if x.get("quantity", 0) > 0]
+    
+    # Filter out removed items from local cart FIRST
+    old_items = list(db["cart"].get("items") or [])
+    db["cart"]["items"] = [x for x in old_items if x.get("quantity", 0) > 0]
+    removed_items = [x for x in old_items if x not in db["cart"]["items"]]
+    
+    # Recompute local cart prices
     _cart_recompute(db["cart"]["items"])
     _persist()
+    
+    # If items were removed, explicitly remove them from real Meesho cart FIRST
+    if removed_items:
+        h = _active_headers()
+        if h:
+            acc = _active_account()
+            cs = db["cart"].get("cart_session") or ""
+            for rem_item in removed_items:
+                identifier = rem_item.get("identifier")
+                if identifier:
+                    await _real_cart_remove({"identifier": identifier}, cs)
+            # Refresh cart session after removals
+            review = await _real_cart_review()
+            if review:
+                db["cart"]["cart_session"] = review.get("cart_session") or cs
+    
+    # Now sync remaining items to real cart
     sync = await _reconcile_real_cart(db["cart"]["items"])
     db["cart"]["sync"] = sync
     out = dict(db["cart"])
@@ -3194,35 +3218,38 @@ async def _clear_cart_after_order(cart_session, items):
 async def api_order_prices(data: dict = None):
     data = data or {}
     addr = db["cart"]["address"] or _account_address_by_id() or None
-    if not data.get("no_live"):
-        # Ensure the local cart is actually present on the real Meesho cart first.
-        # Otherwise a fresh/empty server cart makes review return effective_total=0
-        # and the checkout shows cod=0 / online=0.
-        local_items = db["cart"].get("items") or []
-        if local_items:
-            await _real_cart_add_many(local_items, db["cart"].get("cart_session") or "")
-        review = await _real_cart_review()
-        if review:
-            cs = review.get("cart_session") or db["cart"].get("cart_session") or ""
-            # paymentinfo gives the real UPI-prepaid price (effective_total_for_upi_plugin)
-            _, order_total, upi_amount = await _real_paymentinfo(cs, review.get("effective_total"))
-            cod = float(order_total or review.get("effective_total") or 0)
-            # UPI discount comes from paymentinfo, not cart review.
-            # RULE: COD must always be HIGHER than the UPI price (prepaid discount).
-            online = None
-            for src in (upi_amount, review.get("effective_total_for_upi_plugin")):
-                v = float(src) if src is not None else None
-                if v is not None and v >= 0 and v < cod:
-                    online = v
-                    break
-            if online is None or online >= cod:
-                # Fallback: apply a standard prepaid discount if we can't get the
-                # real UPI price, so COD stays strictly higher than UPI.
-                online = cod if cod <= 0 else max(0.0, cod - 1)
-            fod = review.get("fod")
-            return {"cod": cod, "online": online, "address": review.get("address") or addr,
-                    "fod": fod, "total": cod, "total_mrp": float(review.get("total_mrp") or 0),
-                    "fod_saved": 0.0 if not fod else max(0.0, cod - float((fod or {}).get("final_price") or cod))}
+    
+    # Always fetch fresh prices from Meesho for accurate online price
+    local_items = db["cart"].get("items") or []
+    
+    # If cart has items, ensure they're synced to real Meesho cart first
+    if local_items:
+        await _reconcile_real_cart(local_items)
+    
+    review = await _real_cart_review()
+    if review and (local_items or review.get("effective_total", 0) > 0):
+        cs = review.get("cart_session") or db["cart"].get("cart_session") or ""
+        # paymentinfo gives the real UPI-prepaid price (effective_total_for_upi_plugin)
+        _, order_total, upi_amount = await _real_paymentinfo(cs, review.get("effective_total"))
+        cod = float(order_total or review.get("effective_total") or 0)
+        # UPI discount comes from paymentinfo, not cart review.
+        # RULE: COD must always be HIGHER than the UPI price (prepaid discount).
+        online = None
+        for src in (upi_amount, review.get("effective_total_for_upi_plugin")):
+            v = float(src) if src is not None else None
+            if v is not None and v >= 0 and v < cod:
+                online = v
+                break
+        if online is None or online >= cod:
+            # Fallback: apply a standard prepaid discount if we can't get the
+            # real UPI price, so COD stays strictly higher than UPI.
+            online = cod if cod <= 0 else max(0.0, cod - 1)
+        fod = review.get("fod")
+        return {"cod": cod, "online": online, "address": review.get("address") or addr,
+                "fod": fod, "total": cod, "total_mrp": float(review.get("total_mrp") or 0),
+                "fod_saved": 0.0 if not fod else max(0.0, cod - float((fod or {}).get("final_price") or cod))}
+    
+    # Fallback to local cart if no live data
     tot = db["cart"].get("effective_total") or 0
     return {"cod": tot, "online": tot, "address": addr, "fod": db["cart"].get("fod"), "total": tot, "total_mrp": db["cart"].get("total_mrp") or 0, "fod_saved": db["cart"].get("fod_saved") or 0}
 
