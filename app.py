@@ -2257,6 +2257,7 @@ _CART_CHANGED_CODES = {
 _CART_ERROR_MESSAGES = {
     "cart has been updated", "please review your cart", "cart updated",
     "cart changed", "cart modified", "total changed", "price changed",
+    "your cart has been updated",
 }
 
 
@@ -2392,6 +2393,10 @@ async def _send_preorders(body, headers, uid):
         if not is_cart_changed and _is_cart_changed_error(d):
             is_cart_changed = True
         
+        # Handle HTTP 200 responses with cart update messages (Meesho sometimes returns 200 with "cart updated" message)
+        if resp.status_code == 200 and _is_cart_changed_error(d):
+            is_cart_changed = True
+        
         if attempt == 1 and is_cart_changed:
             _dump_preorders("preorders_cart_changed_retry", code=code or "message_match", cs=cs)
             continue
@@ -2402,7 +2407,8 @@ async def _send_preorders(body, headers, uid):
 _PAID_WORDS = ("paid", "confirmed", "success", "successful", "paid_success", "completed", "done")
 _PENDING_WORDS = ("ordered", "pending", "init", "processing", "awaiting", "created", "unpaid",
                   "in_progress", "not_paid", "")
-_FAILED_WORDS = ("failed", "cancelled", "cancelling", "expired", "rejected", "declined")
+_FAILED_WORDS = ("failed", "cancelled", "cancelling", "expired", "declined")
+# Note: "rejected" removed from _FAILED_WORDS since it can be confused with cart update messages
 
 
 def _dict_has_paid_flag(d):
@@ -3500,6 +3506,12 @@ async def api_order_pay_online(data: dict = None):
         db["cart"]["cart_session"] = cs
     amt = final_amt if final_amt is not None else amt
     if not ok:
+        # Check if this is actually a cart update message (not a real rejection)
+        if isinstance(d, dict) and _is_cart_changed_error(d):
+            # This is a cart update, not a rejection - return appropriate error for retry
+            err_msg = d.get("message", "") or d.get("error", {}).get("message", "cart updated")
+            return {"ok": False, "live": True, "error": "cart_updated",
+                    "message": f"Cart updated: {err_msg}", "detail": d}
         err = "order rejected"
         e = d.get("error") if isinstance(d, dict) else None
         if isinstance(e, dict):
