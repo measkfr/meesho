@@ -3230,16 +3230,26 @@ async def api_order_prices(data: dict = None):
     if review and (local_items or review.get("effective_total", 0) > 0):
         cs = review.get("cart_session") or db["cart"].get("cart_session") or ""
         # paymentinfo gives the real UPI-prepaid price (effective_total_for_upi_plugin)
-        _, order_total, upi_amount = await _real_paymentinfo(cs, review.get("effective_total"))
+        pi_d, order_total, upi_amount = await _real_paymentinfo(cs, review.get("effective_total"))
         cod = float(order_total or review.get("effective_total") or 0)
         # UPI discount comes from paymentinfo, not cart review.
         # RULE: COD must always be HIGHER than the UPI price (prepaid discount).
         online = None
-        for src in (upi_amount, review.get("effective_total_for_upi_plugin")):
-            v = float(src) if src is not None else None
-            if v is not None and v >= 0 and v < cod:
-                online = v
-                break
+        # First try effective_total_for_upi_plugin from paymentinfo result
+        if pi_d:
+            res_pi = pi_d.get("result", {})
+            upi_from_pi = res_pi.get("effective_total_for_upi_plugin")
+            if upi_from_pi is not None:
+                v = float(upi_from_pi) if upi_from_pi not in (None, "") else None
+                if v is not None and v >= 0 and v < cod:
+                    online = v
+        # Fallback to upi_amount or cart review's effective_total_for_upi_plugin
+        if online is None:
+            for src in (upi_amount, review.get("effective_total_for_upi_plugin")):
+                v = float(src) if src is not None else None
+                if v is not None and v >= 0 and v < cod:
+                    online = v
+                    break
         if online is None or online >= cod:
             # Fallback: apply a standard prepaid discount if we can't get the
             # real UPI price, so COD stays strictly higher than UPI.
