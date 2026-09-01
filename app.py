@@ -3386,18 +3386,17 @@ async def api_order_pay_online(data: dict = None):
                 li["price"] = p.get("price") or li.get("price")
                 li["mrp"] = p.get("mrp") or li.get("mrp")
 
-    # 1) REAL cart session + address via one fresh review->bind chain. We do NOT
-    #    call paymentinfo before preorders: on some accounts the UPI payment_summary
-    #    call (payment_modes=['upi_qr']) marks the bound cart "updated" and the
-    #    follow-up preorders then rejects with CART_INELIGIBLE ("Your cart has been
-    #    updated"). customer_amount for preorders MUST equal effective_total.
-    st = await _fresh_checkout_state(need_paymentinfo=False)
+    # 1) REAL cart session + address via one fresh review->bind chain. For UPI orders,
+    # we MUST call paymentinfo to get the real prepaid price. The customer_amount for
+    # preorders MUST equal the UPI price (effective_total_for_upi_plugin), not COD price.
+    st = await _fresh_checkout_state(need_paymentinfo=True)
     if not st:
         return {"ok": False, "live": True, "error": "cart_review_failed",
                 "message": "Could not load the live Meesho cart."}
     cs = st["cs"]
     addr = st["addr"]
-    amt = st["amt"]
+    # Use upi_amount for customer_amount - this is the actual prepaid price Meesho expects
+    amt = st["upi_amount"] if st.get("upi_amount") is not None else st["order_total"]
     upi_amount = st["upi_amount"]
     db["cart"]["cart_session"] = cs
     db["cart"]["address"] = addr
