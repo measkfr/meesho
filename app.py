@@ -2379,12 +2379,21 @@ async def _send_preorders(body, headers, uid):
         _dump_preorders("preorders_json", d=d)
         if isinstance(d, dict) and d.get("order_num"):
             return True, d, final_cs, resp.status_code, final_amt
+        
+        # Check for cart-changed errors (by code or message)
+        is_cart_changed = False
         code = ""
         e = d.get("error") if isinstance(d, dict) else None
         if isinstance(e, dict):
             code = str(e.get("code") or e.get("error_code") or "")
-        if attempt == 1 and code and code.upper() in _CART_CHANGED_CODES:
-            _dump_preorders("preorders_cart_changed_retry", code=code, cs=cs)
+            if code and code.upper() in _CART_CHANGED_CODES:
+                is_cart_changed = True
+        # Also check error message and top-level message for cart-change indicators
+        if not is_cart_changed and _is_cart_changed_error(d):
+            is_cart_changed = True
+        
+        if attempt == 1 and is_cart_changed:
+            _dump_preorders("preorders_cart_changed_retry", code=code or "message_match", cs=cs)
             continue
         return False, d, final_cs, resp.status_code, final_amt
     return False, d, final_cs, None, final_amt
