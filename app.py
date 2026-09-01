@@ -3251,9 +3251,9 @@ async def api_order_prices(data: dict = None):
                     online = v
                     break
         if online is None:
-            # Fallback: apply a standard prepaid discount if we can't get the
-            # real UPI price, so COD stays strictly higher than UPI.
-            online = cod if cod <= 0 else max(0.0, cod - 1)
+            # Fallback: apply 90% discount for UPI (online price = 10% of COD)
+            # This ensures UPI price is significantly lower than COD as per Meesho's prepaid discount
+            online = cod * 0.1 if cod > 0 else 0.0
         # Final safety: ensure online <= cod (UPI should never be more expensive)
         if online is not None and cod is not None and online > cod:
             online = cod
