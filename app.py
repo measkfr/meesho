@@ -2305,7 +2305,10 @@ async def _fresh_checkout_state(need_paymentinfo=True):
             _dump_preorders("fresh_checkout_cod_zero_amt", cs=cs, bound_result=bound_result,
                             review_eff=review.get("effective_total"))
             return None
-    return {"cs": cs, "addr": addr, "amt": int(round(order_total)),
+    # For UPI/online payments, use upi_amount if available; otherwise use order_total.
+    # This ensures the customer_amount matches what Meesho expects for prepaid orders.
+    amt_value = upi_amount if (need_paymentinfo and upi_amount is not None) else order_total
+    return {"cs": cs, "addr": addr, "amt": int(round(amt_value)),
             "order_total": order_total, "upi_amount": upi_amount,
             "items": review.get("items") or [], "total_quantity": review.get("total_quantity"),
             "effective_total": review.get("effective_total"), "fod": review.get("fod")}
