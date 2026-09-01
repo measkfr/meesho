@@ -6,9 +6,4 @@ __pycache__/
 # Logs
 *.log
 uvicorn.log
-
-# Environment
-.env
-.env.local
-*.env.*
 ```
