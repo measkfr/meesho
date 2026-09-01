@@ -3504,8 +3504,33 @@ async def api_order_pay_online(data: dict = None):
         e = d.get("error") if isinstance(d, dict) else None
         if isinstance(e, dict):
             err = e.get("message") or e.get("title") or err
-        return {"ok": False, "live": True, "error": "order_rejected",
-                "message": f"Meesho rejected the order ({status}): {err}", "detail": d}
+        # Check if this is a cart-change error that should have been retried
+        is_cart_changed = _is_cart_changed_error(d) if isinstance(d, dict) else False
+        if is_cart_changed:
+            # Cart changed during retry - fetch fresh state and try one more time
+            fresh = await _fresh_checkout_state()
+            if fresh:
+                cs, amt = fresh["cs"], fresh["amt"]
+                body["cart_session"] = cs
+                body["customer_amount"] = amt
+                body["user_id"] = uid
+                resp = await meesho_request("POST", "https://prod.meeshoapi.com/api/4.0/preorders",
+                                           json=body, headers=h, timeout=30)
+                if resp:
+                    try:
+                        d = resp.json()
+                    except Exception:
+                        d = {}
+                    if isinstance(d, dict) and d.get("order_num"):
+                        ok = True
+                        final_cs = cs
+                        final_amt = amt
+                        db["cart"]["cart_session"] = cs
+                        amt = final_amt
+        if not ok:
+            return {"ok": False, "live": True, "error": "order_rejected",
+                    "message": f"Meesho rejected the order ({status}): {err}", "detail": d}
+        # If we succeeded in the extra retry, continue below
 
     order_num = str(d["order_num"])
     upi_uri = ""
