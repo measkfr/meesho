@@ -1,0 +1,444 @@
+
+===== fresh_checkout_bind_fail 2026-08-30 22:43:39.825122 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvuaZnEUlp/2DFRj9ToNYhYNXsgMRkCVPj63xK7O2Do3S9exkOAGxf94jh9PR3dNVEw=="
+--- addr ---
+{"id": 622171739, "user_id": null, "name": "Archna", "mobile": "faah", "pin": "822110", "city": "Shahpur", "state": "Jharkhand", "address_line_1": "Near Rani Medical Agency", "address_line_2": "Swami Vivekanand Chowk, Shapur Rabda Road, Chainpur, Palamu District, Shahpur", "landmark": "", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== preorders_request 2026-08-30 22:57:21.140885 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvuaZnEUlp/2DFRj9ToNYhYOgOjwJd5sy9qRzPk+SoZGmZJOu+GZlb0984PU58iXYRQ==", "vpa": null, "address_id": 175229093, "direct_wallet_token": null, "customer_amount": 108, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": 557056}
+
+===== preorders_response 2026-08-30 22:57:22.415265 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-30 22:57:22.416164 =====
+--- d ---
+{"success": true, "order_num": "325687885493821184", "qr_transaction_params": {"request_id": "48c8595c-4406-445d-ab68-f89acafb0ac0", "service": "in.juspay.hyperapi", "payload": {"order_id": "NKKGP6V4FHZRK3UUQVLQ", "payment_method": "COD", "end_urls": ["https:\\/\\/shop\\.merchant\\.com\\/payments\\/handleResponse.*"], "client_auth_token": "tkn_60c5129957f346f8b072d99b3338d70c"}}, "payment_error_message": "In case of any amount deduction, the refund will be initiated within 48 hours."}
+
+===== fresh_checkout_bind_fail 2026-08-31 14:31:25.856180 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvjPUMkXtblAsAPaCeGzXMEp3fgOo0vbPNC9ZkhwctJkSQ/yx+yZLCTTD+KnwVfegSQ=="
+--- addr ---
+{"id": 752873539, "user_id": null, "name": "Rajabhai", "mobile": "6161661616", "alternative_mobile": "6209494949", "pin": "822110", "city": "Jwjwjwj", "state": "Jharkhand", "address_line_1": "Jsjsjej eheh", "address_line_2": "Sbbsjjjj hhh", "landmark": "Bdhs", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== fresh_checkout_bind_fail 2026-08-31 14:31:29.291022 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvjPUMkXtblAsAPaCeGzXMErQ+ko+TGDChwmDoulI6bKTMG/AZdK/Hfkya9PynyasRQ=="
+--- addr ---
+{"id": 752873539, "user_id": null, "name": "Rajabhai", "mobile": "6161661616", "alternative_mobile": "6209494949", "pin": "822110", "city": "Jwjwjwj", "state": "Jharkhand", "address_line_1": "Jsjsjej eheh", "address_line_2": "Sbbsjjjj hhh", "landmark": "Bdhs", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== fresh_checkout_bind_fail 2026-08-31 14:31:42.383685 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvjPUMkXtblAsAPaCeGzXMEqpJ1CX/h3TM6ytMQIyPNIivbUTNKUBYvzvrFO5Tc+DWg=="
+--- addr ---
+{"id": 752873539, "user_id": null, "name": "Rajabhai", "mobile": "6161661616", "alternative_mobile": "6209494949", "pin": "822110", "city": "Jwjwjwj", "state": "Jharkhand", "address_line_1": "Jsjsjej eheh", "address_line_2": "Sbbsjjjj hhh", "landmark": "Bdhs", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== fresh_checkout_bind_fail 2026-08-31 14:36:04.430595 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/baVJjQjccodYInV+BLB8fRAQArvZdk/yzBJrLglM0U+A=="
+--- addr ---
+{"id": 752873539, "user_id": null, "name": "Rajabhai", "mobile": "6161661616", "alternative_mobile": "6209494949", "pin": "822110", "city": "Jwjwjwj", "state": "Jharkhand", "address_line_1": "Jsjsjej eheh", "address_line_2": "Sbbsjjjj hhh", "landmark": "Bdhs", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== fresh_checkout_bind_fail 2026-08-31 14:41:02.711346 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/ZExpDVm70XsC8aTtF2ozmNWfki3ht4x728pyMKlljjHA=="
+--- addr ---
+{"id": 752873539, "user_id": null, "name": "Rajabhai", "mobile": "6161661616", "alternative_mobile": "6209494949", "pin": "822110", "city": "Jwjwjwj", "state": "Jharkhand", "address_line_1": "Jsjsjej eheh", "address_line_2": "Sbbsjjjj hhh", "landmark": "Bdhs", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== preorders_request 2026-08-31 14:46:08.576126 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/Y+4Kil84nOnqS2Rrx1XS0zBqtiSgbLFD9jC1o14vZbIQ==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:46:08.940597 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:46:08.940990 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 14:47:07.037704 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/bzDkNNyyatrdg4Oat3pK+Qqau/QZUM53eknwq+ObSGbQ==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:47:07.434234 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:47:07.434547 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 14:47:15.145010 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/YziTf2JEXNqdeo+q4DqasRFqOqm3W7uknqhdN9IOpk5Q==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:47:15.596449 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:47:15.596933 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 14:48:41.040372 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/ZtCEiR5F6Or6TrdQaYXNLu1MGNoLiLe5+zWk20GWg2dA==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:48:41.508334 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:48:41.508971 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 14:48:50.798811 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/bOamAHo5TGErpWOGzhH0Amc9BQfVq7j8iMUJO35fme/A==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:48:51.228508 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:48:51.229591 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 14:48:58.355904 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrjVOya98p3LCrBeHFPMl/YvV56GXZMxua7d/2qNM7QFZw77mrR0ZhZ8D9VeHbdGmQ==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:48:58.776841 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:48:58.777181 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 14:56:44.091632 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvv4ZNqfh3+ST9OuETe9Q80WbE2Oa1wH7iaPS4qLMZ+Ucb3/eIDwZVqu/hDN2mDP5Vg==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:56:44.655168 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:56:44.655501 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 14:58:19.782653 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvv4ZNqfh3+ST9OuETe9Q80WRddw6nzAx0Y3PlLktV1ej504OX6lJrgaE0JuGZKbfFw==", "vpa": null, "address_id": 175229093, "direct_wallet_token": null, "customer_amount": 119, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": 557056}
+
+===== preorders_response 2026-08-31 14:58:20.370306 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 14:58:20.371354 =====
+--- d ---
+{"success": true, "order_num": "325929720883568256", "qr_transaction_params": {"request_id": "6f5f007d-7a31-4218-8b63-9cc3d65e1997", "service": "in.juspay.hyperapi", "payload": {"order_id": "NKKUSNPJL7MCRSYKT4CQ", "payment_method": "COD", "end_urls": ["https:\\/\\/shop\\.merchant\\.com\\/payments\\/handleResponse.*"], "client_auth_token": "tkn_6d517a5e735e4e5290f967db863586e8"}}, "payment_error_message": "In case of any amount deduction, the refund will be initiated within 48 hours."}
+
+===== preorders_request 2026-08-31 14:59:07.352051 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvv4ZNqfh3+ST9OuETe9Q80U3X8IZ1OAS1U2XTL5pLkN9hb32+4q3GFjM3OzQ6bvSXw==", "vpa": null, "address_id": 175229093, "direct_wallet_token": null, "customer_amount": 37, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 14:59:25.206103 =====
+--- status ---
+500
+
+===== preorders_json 2026-08-31 14:59:25.206500 =====
+--- d ---
+{"error": ""}
+
+===== preorders_request 2026-08-31 15:01:49.109132 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvv4ZNqfh3+ST9OuETe9Q80Wr86qNBhEqhoqQcX2vq5SSkP7bNVWa7YlR28kb8s7VCg==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 37, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:01:49.548671 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:01:49.548983 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:02:14.144766 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvv4ZNqfh3+ST9OuETe9Q80UVWBy8fLdgK9nSQVE9Yb2oiV/iyRM/6VLio8maYGld+g==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 119, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": 557056}
+
+===== preorders_response 2026-08-31 15:02:16.674650 =====
+--- status ---
+500
+
+===== preorders_json 2026-08-31 15:02:16.675228 =====
+--- d ---
+{"error": ""}
+
+===== preorders_request 2026-08-31 15:03:50.281755 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvv4ZNqfh3+ST9OuETe9Q80VvjFqUVUHcfYdjF1KaMaDTXb+ykFx8AScvgFnO7t7wqQ==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 480, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:03:50.688517 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:03:50.688989 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:08:02.694885 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvl8jwzaiyWFHcw0gbAiudCshfGgp5vH/J2HbcK90M0iJ1Epsv26gih/jNkK8gHEpCg==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:08:03.095693 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:08:03.095993 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:09:56.257579 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvl8jwzaiyWFHcw0gbAiudCuFH+n2XXKn76xNkdHVHNfFQc2t+v+kC32852OBIRJQyA==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 37, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:09:56.663579 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:09:56.664010 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:19:33.386849 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvl8jwzaiyWFHcw0gbAiudCv8an04Mbq+wOuZ1WDnWaVvcOIZpcyZeBjgCCCP8xjLjQ==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 129, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:19:33.893042 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:19:33.893398 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:22:30.329763 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvl8jwzaiyWFHcw0gbAiudCtWzua/h503foSwrqQHWuO5SsPyH6ptIPYQtzz9ZbOgdQ==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 129, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:22:30.840326 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:22:30.840669 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:24:56.147027 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvshYQjdioFdCQJUEBjPBmQOmQi+4qYYYtlG9R3FPJI+U2ADJvkAeXYYpXOEctD+StA==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 129, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:24:56.657863 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:24:56.658245 =====
+--- d ---
+{"success": true, "order_num": "325936416533414528"}
+
+===== preorders_request 2026-08-31 15:25:10.556853 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvshYQjdioFdCQJUEBjPBmQOlRqcRNQNh32/Tdv+4I+XcaDcySYrkx0GTcM8uAN0Log==", "vpa": null, "address_id": 622171739, "direct_wallet_token": null, "customer_amount": 119, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": 557056}
+
+===== preorders_response 2026-08-31 15:25:11.223739 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:25:11.224607 =====
+--- d ---
+{"success": true, "order_num": "325936477078192768", "qr_transaction_params": {"request_id": "9e8e6532-ed62-44f5-a1b1-75ce941f7339", "service": "in.juspay.hyperapi", "payload": {"order_id": "NKKU67Y67LPQLWZ3QL4Q", "payment_method": "COD", "end_urls": ["https:\\/\\/shop\\.merchant\\.com\\/payments\\/handleResponse.*"], "client_auth_token": "tkn_59b6e16457144d02b4f31ae3c14b47c9"}}, "payment_error_message": "In case of any amount deduction, the refund will be initiated within 48 hours."}
+
+===== preorders_request 2026-08-31 15:51:07.420631 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5UICTSbkuV9oF/zblGHV2Jjh5rkk8c6z8X25Vyzfukt+A==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:51:07.999519 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:51:08.000856 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:51:22.122848 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5WnqoMjqhbiBsywd5nzXvQOnd46UD/N/0CMN3YiGXmEmw==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:51:22.693402 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:51:22.693717 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:51:36.439096 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5W4EYjILfeEK2kLUGdB3yOfPhihQWZDIWXboaoMZSzvxA==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 34, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:51:37.282547 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:51:37.284365 =====
+--- d ---
+{"success": true, "order_num": "325943129370165888"}
+
+===== fresh_checkout_bind_fail 2026-08-31 15:52:16.493247 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5U8S87DKW9ZZKH9qmxGqIUVGWYgqKmMEGtb+Admjtu6PQ=="
+--- addr ---
+{"id": 752873539, "user_id": null, "name": "Rajabhai", "mobile": "6161661616", "alternative_mobile": "6209494949", "pin": "822110", "city": "Jwjwjwj", "state": "Jharkhand", "address_line_1": "Jsjsjej eheh", "address_line_2": "Sbbsjjjj hhh", "landmark": "Bdhs", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== preorders_request 2026-08-31 15:52:51.906244 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5WKuWW1mgqu7yWgG6RdciaOZd4vPvgFGrFHutmrHicE6g==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:52:52.538324 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:52:52.538708 =====
+--- d ---
+{"success": true, "order_num": "325943445381612160"}
+
+===== preorders_request 2026-08-31 15:53:11.642288 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5VsxbBlzoQNhbZw6Fg1moFg3VSRjxMR2pkZwj8eQFz2Ow==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:53:12.198814 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:53:12.199169 =====
+--- d ---
+{"success": false, "error": {"title": "Review Cart", "message": "Your cart has been updated. Please review your cart", "reason": "CART_INELIGIBLE", "cta": {"text": "Ok", "action": "PDP"}}}
+
+===== preorders_request 2026-08-31 15:53:37.432696 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5Wi8Kp5RHTXEzC0jg3X5Ya/FUx+Hw7T1Ftps/TDXVpasg==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:53:38.010109 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:53:38.011798 =====
+--- d ---
+{"success": true, "order_num": "325943636325946240", "share_payment_details": {"share_message": "Hi, please help me place the Meesho order.\r\nScan the QR code and pay ₹140.\r\nPayment valid till ${EXPIRY_TIME}."}}
+
+===== preorders_request 2026-08-31 15:54:31.972871 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5XMMA7G0Uw8uX2YS6qhokmSHh8Du2My+i4SyClHSx/kNA==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:54:32.582013 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:54:32.582623 =====
+--- d ---
+{"success": true, "order_num": "325943865357271680"}
+
+===== preorders_request 2026-08-31 15:54:35.020300 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvpdGQepOyZeFL5oHSjeQg5Xbk7VHK64MFlD68IPu3oNQ4Cb5tigqf4rveaWb/8I3Lw==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 15:54:35.572257 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 15:54:35.572676 =====
+--- d ---
+{"success": true, "order_num": "325943877810160256", "share_payment_details": {"share_message": "Hi, please help me place the Meesho order.\r\nScan the QR code and pay ₹140.\r\nPayment valid till ${EXPIRY_TIME}."}}
+
+===== preorders_request 2026-08-31 16:08:34.834832 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrLA8dnytQRyutseU+ZrmlNsEtZh6XbrMrBeM1g2zxtQjIQsM+vmY81n3wFUnJYziw==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 16:08:36.005127 =====
+--- status ---
+400
+
+===== preorders_json 2026-08-31 16:08:36.005547 =====
+--- d ---
+{"message": "Internal Server Error"}
+
+===== preorders_request 2026-08-31 16:08:36.961081 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrLA8dnytQRyutseU+ZrmlMJCX/izempsMwwpMiDTwS2lIFegzdNT7ofxPTjmWrlVg==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 16:08:37.599899 =====
+--- status ---
+400
+
+===== preorders_json 2026-08-31 16:08:37.600362 =====
+--- d ---
+{"message": "Internal Server Error"}
+
+===== preorders_request 2026-08-31 16:11:21.647555 =====
+--- body ---
+{"payment_method_type": "COD", "identifier": "buy_now", "payment_aggregator": null, "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrLA8dnytQRyutseU+ZrmlOgA0iVOVuvoh+6qllPRiUXM4zhFe9YtzRyDLC+QdFeag==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": null, "payment_flow_type": null, "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": null, "processor_id": null, "payment_method": "COD", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 16:11:22.660061 =====
+--- status ---
+400
+
+===== preorders_json 2026-08-31 16:11:22.660385 =====
+--- d ---
+{"message": "Internal Server Error"}
+
+===== preorders_request 2026-08-31 16:11:22.660774 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvrLA8dnytQRyutseU+ZrmlOgA0iVOVuvoh+6qllPRiUXM4zhFe9YtzRyDLC+QdFeag==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 140, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "25.0", "accuracy": 92.9, "longitude": "85.0"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 16:11:23.106517 =====
+--- status ---
+400
+
+===== preorders_json 2026-08-31 16:11:23.106808 =====
+--- d ---
+{"message": "Internal Server Error"}
+
+===== preorders_request 2026-08-31 17:36:08.716860 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvuw3wvNq1r1vzVhXTY/EAU1ncvnLdIqwJoaH+UQGrkKRGkVs5hX10fhqohmpE2VwyA==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 28, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 17:36:09.255953 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 17:36:09.256301 =====
+--- d ---
+{"success": true, "order_num": "325969436827833280", "share_payment_details": {"share_message": "Hi, please help me place the Meesho order.\r\nScan the QR code and pay ₹28.\r\nPayment valid till ${EXPIRY_TIME}."}}
+
+===== fresh_checkout_bind_fail 2026-08-31 17:42:24.849541 =====
+--- cs ---
+"1jF+bjuzsuLKbPu2JWaRvituy3B+8v8TZKrKyesEp3b44roYbF/FM/ZZsZ/iLBPEh1ca6IteiTqxtqTxgnFDXQ=="
+--- addr ---
+{"id": 752873539, "user_id": null, "name": "Rajabhai", "mobile": "6161661616", "alternative_mobile": "6209494949", "pin": "822110", "city": "Jwjwjwj", "state": "Jharkhand", "address_line_1": "Jsjsjej eheh", "address_line_2": "Sbbsjjjj hhh", "landmark": "Bdhs", "address_type": "Home", "coordinates": {}, "latitude": null, "longitude": null, "pin_serviceable": true, "valid": true, "estimated_delivery_date": null, "location": null}
+
+===== preorders_request 2026-08-31 19:37:41.602359 =====
+--- body ---
+{"payment_method_type": "UPI", "identifier": "buy_now", "payment_aggregator": "JUSPAY", "is_selling_to_customer": false, "cart_session": "1jF+bjuzsuLKbPu2JWaRvkZ1823tGJGDypUPP74e5cnYWBKhrWwGiyN11lZpf6YzhKAiEAYwMjbT+JE4/SQKqg==", "vpa": null, "address_id": 752873539, "direct_wallet_token": null, "customer_amount": 35, "upi_package_name": "com.google.android.apps.nbu.paisa.user", "payment_flow_type": "qr", "sender_id": -1, "accurate_location": {"latitude": "24.0814", "accuracy": 92.9, "longitude": "84.0506737"}, "card_token": null, "payment_provider": "JUSPAY", "processor_id": "in.juspay.hyperapi", "payment_method": "UPI", "enable_price_unbundling": true, "user_id": "592745309"}
+
+===== preorders_response 2026-08-31 19:37:43.398467 =====
+--- status ---
+200
+
+===== preorders_json 2026-08-31 19:37:43.399292 =====
+--- d ---
+{"success": true, "order_num": "326000030694478912", "share_payment_details": {"share_message": "Hi, please help me place the Meesho order.\r\nScan the QR code and pay ₹35.\r\nPayment valid till ${EXPIRY_TIME}."}}

@@ -1,0 +1,60 @@
+{
+ "admin": {
+  "id": 1,
+  "username": "admin",
+  "password": "admin123",
+  "role": "admin",
+  "plan": "proplus",
+  "active": true,
+  "created_at": 1788137648,
+  "last_seen": 1788140599,
+  "used": {
+   "date": "",
+   "count": 0
+  }
+ },
+ "riya": {
+  "id": 2,
+  "username": "riya",
+  "password": "riya123",
+  "role": "user",
+  "plan": "pro",
+  "active": true,
+  "created_at": 1788137733,
+  "last_seen": 1788140599,
+  "used": {
+   "date": "",
+   "count": 0
+  }
+ },
+ "7076200749": {
+  "id": 3,
+  "username": "7076200749",
+  "password": "13b811d1191b",
+  "role": "user",
+  "plan": "free",
+  "active": true,
+  "created_at": 1788166674,
+  "last_seen": 1788167990,
+  "used": {
+   "date": "2026-08-31",
+   "count": 2
+  },
+  "trial_used": 1
+ },
+ "6372088917": {
+  "id": 4,
+  "username": "6372088917",
+  "password": "0453c2126921",
+  "role": "user",
+  "plan": "free",
+  "active": true,
+  "created_at": 1788228153,
+  "last_seen": 1788228153,
+  "used": {
+   "date": "",
+   "count": 0
+  },
+  "trial_used": 0
+ }
+}
