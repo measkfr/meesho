@@ -1793,10 +1793,17 @@ async def _real_cart_review():
     Returns a mapped payload (items / totals / address / cart_session) or None."""
     h = _active_headers()
     if not h:
+        print(f"[CART_REVIEW] No active headers found - user not logged in")
         return None
     acc = _active_account()
     uid = acc["user_id"]
     cs = db["cart"].get("cart_session") or ""
+    
+    # Check if cart has items before making API call
+    local_items = db["cart"].get("items") or []
+    if not local_items:
+        print(f"[CART_REVIEW] Local cart is empty - nothing to sync")
+    
     body = {
         "context": "review", "identifier": "buy_now", "cart_session": cs,
         "dest_pin": None, "address_id": None, "customerAmount": None, "payment_modes": None,
@@ -1804,15 +1811,33 @@ async def _real_cart_review():
         "filter_products": True, "is_self_pickup": None, "self_pickup_address": None,
         "is_emi": None, "user_id": uid,
     }
-    resp = await meesho_request("POST", "https://prod.meeshoapi.com/api/9.0/cart",
+    print(f"[CART_REVIEW] Fetching cart for user {uid} with session {cs[:20] if cs else 'NONE'}...")
+    resp = await meesho_request("POST", "https://prod.meeshoapi.com/api/8.0/cart",
                                 json=body, headers=h, timeout=25)
-    if not resp or resp.status_code != 200:
+    if not resp:
+        print(f"[CART_REVIEW] No response from Meesho API")
+        return None
+    if resp.status_code != 200:
+        error_text = resp.text[:200] if hasattr(resp, 'text') else 'unknown'
+        print(f"[CART_REVIEW] HTTP {resp.status_code} - {error_text}")
         return None
     d = _as_json(resp)
-    if not (d and d.get("success") and d.get("cart_session") and d.get("result")):
+    if not d:
+        print(f"[CART_REVIEW] Invalid JSON response")
         return None
+    if not d.get("success"):
+        print(f"[CART_REVIEW] API returned success=false - {d.get('message', 'unknown')}")
+        return None
+    if not d.get("cart_session"):
+        print(f"[CART_REVIEW] No cart_session in response")
+        return None
+    if not d.get("result"):
+        print(f"[CART_REVIEW] No result in response")
+        return None
+    
     cs_new = d["cart_session"]
     res = d["result"]
+    print(f"[CART_REVIEW] Cart loaded successfully - session: {cs_new[:20] if cs_new else 'NONE'}")
     items = []
     for s in res.get("splits") or []:
         sup = s.get("supplier") or {}
@@ -1931,7 +1956,7 @@ async def _account_real_fod(acc=None):
                 "is_self_pickup": None, "self_pickup_address": None, "is_emi": None,
                 "user_id": uid,
             }
-            resp = await meesho_request("POST", "https://prod.meeshoapi.com/api/9.0/cart",
+            resp = await meesho_request("POST", "https://prod.meeshoapi.com/api/8.0/cart",
                                         json=body, headers=h, timeout=25)
             if resp and resp.status_code == 200:
                 d = _as_json(resp)
