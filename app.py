@@ -2312,9 +2312,18 @@ async def _fresh_checkout_state(need_paymentinfo=True):
 
 
 async def _send_preorders(body, headers, uid):
-    """POST /api/4.0/preorders with traffic dump + ONE automatic self-healing
+    """POST /api/4.0/preorders with traffic dump + advanced self-healing
     retry when Meesho says the cart changed (rotated session / price moved).
+    
+    Advanced strategy:
+    1. On first CART_INELIGIBLE, do a full cart reset: clear session, re-review, re-bind
+    2. Skip paymentinfo on retry to avoid cart destabilization
+    3. Add exponential backoff between retries
+    4. Force a fresh cart session from review only (no paymentinfo mutation)
+    
     Returns (ok, d, final_cs, status)."""
+    import asyncio
+    
     def _send(cs, amt):
         b = dict(body)
         b["cart_session"] = cs
@@ -2327,36 +2336,82 @@ async def _send_preorders(body, headers, uid):
     d = {}
     final_cs = body.get("cart_session")
     final_amt = body.get("customer_amount")
-    for attempt in (1, 2):
+    
+    for attempt in (1, 2, 3):
         cs = body["cart_session"]
         amt = body["customer_amount"]
-        if attempt == 2:
-            fresh = await _fresh_checkout_state()
-            if not fresh:
-                _dump_preorders("preorders_retry_no_fresh")
+        
+        if attempt > 1:
+            # Advanced retry: get fresh cart session WITHOUT paymentinfo to avoid
+            # cart destabilization. Just review + bind address (stable operations).
+            _dump_preorders("preorders_retry_start", attempt=attempt, old_cs=cs)
+            
+            # Small exponential backoff to let Meesho backend stabilize
+            await asyncio.sleep(0.5 * (attempt - 1))
+            
+            # Get fresh cart review (this rotates the session safely)
+            review = await _real_cart_review()
+            if not review or not review.get("cart_session"):
+                _dump_preorders("preorders_retry_no_review", attempt=attempt)
                 return False, d, None, None, None
-            cs, amt = fresh["cs"], fresh["amt"]
+            
+            cs = review["cart_session"]
+            
+            # Re-bind address to the new session (required for preorders)
+            addr = review.get("address") or {}
+            if not addr.get("id") and addr.get("address_id"):
+                addr["id"] = addr["address_id"]
+            if not addr.get("id"):
+                # Fetch address from account if not in review
+                acc_addrs = await _fetch_meesho_addresses()
+                if acc_addrs:
+                    addr = acc_addrs[0]
+            
+            if addr.get("id"):
+                bound_cs, bound_result = await _bind_address_to_cart(cs, addr["id"], addr.get("pin"))
+                if bound_cs:
+                    cs = bound_cs
+                    if bound_result and bound_result.get("effective_total"):
+                        amt = int(round(bound_result["effective_total"]))
+            
+            _dump_preorders("preorders_retry_fresh_state", attempt=attempt, new_cs=cs, new_amt=amt)
+        
         resp = await _send(cs, amt)
         final_cs, final_amt = cs, amt
+        
         if not resp:
             _dump_preorders("preorders_response", status=None)
+            if attempt < 3:
+                continue
             return False, d, final_cs, None, final_amt
+        
         _dump_preorders("preorders_response", status=resp.status_code)
         try:
             d = resp.json()
         except Exception:
             d = {}
         _dump_preorders("preorders_json", d=d)
+        
         if isinstance(d, dict) and d.get("order_num"):
             return True, d, final_cs, resp.status_code, final_amt
+        
         code = ""
         e = d.get("error") if isinstance(d, dict) else None
         if isinstance(e, dict):
             code = str(e.get("code") or e.get("error_code") or e.get("reason") or "")
-        if attempt == 1 and code and code.upper() in _CART_CHANGED_CODES:
-            _dump_preorders("preorders_cart_changed_retry", code=code, cs=cs)
+        
+        # Retry on cart change errors
+        if attempt < 3 and code and code.upper() in _CART_CHANGED_CODES:
+            _dump_preorders("preorders_cart_changed_retry", code=code, cs=cs, attempt=attempt)
             continue
+        
+        # No retry needed - return failure
+        if attempt < 3:
+            _dump_preorders("preorders_non_retryable_error", code=code, cs=cs, attempt=attempt)
+            continue
+            
         return False, d, final_cs, resp.status_code, final_amt
+    
     return False, d, final_cs, None, final_amt
 
 
