@@ -2231,7 +2231,7 @@ async def _real_paymentinfo(cart_session, amount):
     body = {
         "context": "payment_summary", "identifier": "buy_now", "cart_session": cart_session,
         "dest_pin": None, "address_id": None, "customerAmount": None,
-        "payment_modes": ["upi_qr"], "replaceable": None, "item": None,
+        "payment_modes": ["cod"], "replaceable": None, "item": None,
         "payment_instrument": None, "bank_offers": None, "filter_products": None,
         "is_self_pickup": None, "self_pickup_address": None, "is_emi": None, "user_id": acc["user_id"],
     }
@@ -2254,8 +2254,14 @@ async def _real_paymentinfo(cart_session, amount):
                 return None
         return None
 
+    # COD price comes from effective_total (when payment_modes=["cod"])
     order_total = _num(res.get("effective_total")) or _num(amount) or 0.0
-    upi_amount = _num(res.get("effective_total_for_upi_plugin")) or order_total
+    
+    # UPI price: prefer effective_total_for_upi_plugin if it's actually lower than COD
+    # This field contains the UPI plugin discounted price when available
+    upi_plugin_val = _num(res.get("effective_total_for_upi_plugin"))
+    upi_amount = upi_plugin_val if (upi_plugin_val is not None and upi_plugin_val < order_total) else order_total
+    
     return d, order_total, upi_amount
 
 
