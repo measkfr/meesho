@@ -5,27 +5,27 @@ __pycache__/
 *.pyo
 *.pyd
 .Python
+env/
 venv/
 .venv/
-.env
-.env.local
-.env.*
-
-# Logs and temporary files
-*.log
-*.tmp
-*.swp
-
-# Coverage
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
 .coverage
-coverage/
-htmlcov/
-
-# Editors
-.vscode/
-.idea/
-
-# OS
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+.MF
+*.swp
+*.swo
+*~
 .DS_Store
 Thumbs.db
 ```

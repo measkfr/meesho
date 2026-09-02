@@ -2352,7 +2352,7 @@ async def _send_preorders(body, headers, uid):
         code = ""
         e = d.get("error") if isinstance(d, dict) else None
         if isinstance(e, dict):
-            code = str(e.get("code") or e.get("error_code") or "")
+            code = str(e.get("code") or e.get("error_code") or e.get("reason") or "")
         if attempt == 1 and code and code.upper() in _CART_CHANGED_CODES:
             _dump_preorders("preorders_cart_changed_retry", code=code, cs=cs)
             continue
